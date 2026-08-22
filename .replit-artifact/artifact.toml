@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "হিসাব-খাতা"
+description = "বাংলাভাষী ছোট ব্যবসার জন্য অফলাইন হিসাব-খাতা মোবাইল অ্যাপ—দেনা-পাওনা, লেনদেন, খরচ এবং রিপোর্ট সহজে পরিচালনা করার জন্য।"
+version = "1.0.0"
+id = "artifacts/hisab-khata"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 22978
+
+[services.development]
+run = "pnpm --filter @workspace/hisab-khata run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hisab-khata", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/hisab-khata", "run", "serve" ]
+
+[services.env]
+PORT = "22978"
+BASE_PATH = "/"
